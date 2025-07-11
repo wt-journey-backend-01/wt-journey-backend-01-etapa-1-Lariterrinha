@@ -59,6 +59,7 @@ app.post('/contato', (req, res) => {
                 <div class="container">
                     <h1>Olá, ${nome}. Contato recebido!</h1>
                     <p>Obrigado por sua mensagem sobre "${assunto}".</p>
+                    <p>Sua mensagem: "${mensagem}".</p>
                     <p>Responderemos em breve no e-mail: ${email}.</p>
                     <a href="/" class="btn">Voltar ao Início</a>
                 </div>
@@ -73,7 +74,7 @@ app.get('/api/lanches', (req, res) => {
 });
 
 
-// Tratar erros 404 (Pagina não encontrada)
+// tratar erros 404 (Pagina não encontrada)
 app.use((req, res) => {
     res.status(404).send(`
         <html>
