@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevBurger</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <h1>DevBurger</h1>
+    </header>
+
+    <div class="container">
+        <section id="cardapio">
+            <h2>Nosso Cardápio</h2>
+            <div id="lanches-container" class="card-grid">
+                </div>
+        </section>
+
+        <section id="sugestao">
+            <h2>Sugira um Lanche!</h2>
+            <form action="/sugestao" method="GET">
+                <div class="form-group">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="ingredientes">Ingredientes (separados por vírgula):</label>
+                    <textarea id="ingredientes" name="ingredientes" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn">Enviar Sugestão</button>
+            </form>
+        </section>
+
+        <footer>
+            <a href="/contato">Fale Conosco</a> | <a href="/api/lanches" target="_blank">Ver API de Lanches</a>
+        </footer>
+    </div>
+
+    <script>
+        // Script para carregar os lanches
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('/api/lanches')
+                .then(response => response.json())
+                .then(lanches => {
+                    const container = document.getElementById('lanches-container');
+                    lanches.forEach(lanche => {
+                        const lancheCard = document.createElement('div');
+                        lancheCard.className = 'card';
+                        lancheCard.innerHTML = `
+                            <h3>${lanche.nome}</h3>
+                            <p>${lanche.ingredientes}</p>
+                        `;
+                        container.appendChild(lancheCard);
+                    });
+                })
+                .catch(error => console.error('Erro ao carregar lanches:', error));
+        });
+    </script>
+
+</body>
+</html>

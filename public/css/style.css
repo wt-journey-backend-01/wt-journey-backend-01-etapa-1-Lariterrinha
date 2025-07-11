@@ -1,0 +1,116 @@
+/* public/css/style.css - Versão Básica */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 1rem;
+}
+
+header {
+    text-align: center;
+    padding: 1rem 0;
+    border-bottom: 2px solid #e0e0e0;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 2rem;
+    border: 1px solid #ddd;
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+h2 {
+    font-size: 2rem;
+    color: #333;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.5rem;
+    margin-top: 0;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 1rem;
+}
+
+@media (min-width: 600px) {
+    .card-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.card {
+    border: 1px solid #e0e0e0;
+    padding: 1.5rem;
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+/**********************************************************/
+/* SUGERIR LANCHE!!! */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    box-sizing: border-box; 
+}
+
+textarea {
+    resize: vertical;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #c029f2 ; 
+    color: white;
+    padding: 0.8rem 1.2rem;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #8d10b3; 
+}
+
+footer {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+footer a {
+    color: #8d10b3;
+}
